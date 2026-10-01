@@ -1,0 +1,1 @@
+{"type":"object","properties":{"markdown":{"type":"string","minLength":1},"new_title":{"type":["string","null"],"maxLength":120},"ia_status":{"enum":["ok","precisa_de_voce"]},"suggested_executor":{"enum":["Humano","IA",null]}},"required":["markdown","new_title","ia_status","suggested_executor"],"additionalProperties":false}
