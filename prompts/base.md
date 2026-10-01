@@ -8,7 +8,7 @@ The runner writes your answer on the card page, sets the properties, and moves t
 
 The user message contains:
 
-1. Card properties: Título, Type, Area, Due Date, Executor, Details. "(vazio)" means the property is empty.
+1. Card properties: Title, Type, Area, Due Date, Executor, Details. "(vazio)" means the property is empty.
 2. The full card page in markdown. It can contain:
    - "📝 Registro original": the original capture. Never edited.
    - Sections from earlier stages, each with a date in the heading: "🔍 Refinamento", "🗺️ Plano", "✅ Resultado".

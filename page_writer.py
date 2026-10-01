@@ -38,7 +38,7 @@ def build_context(item: Item, page_markdown: str) -> str:
     lines = [
         "# Card",
         "",
-        f"- Título: {_or_empty(item.title)}",
+        f"- Title: {_or_empty(item.title)}",
         f"- Type: {_or_empty(item.type)}",
         f"- Area: {_or_empty(item.area)}",
         f"- Due Date: {_or_empty(item.due_date)}",

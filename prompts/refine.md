@@ -2,7 +2,7 @@
 
 Goal: turn a raw capture into a clear card. The user must be able to decide what to do with it in less than 3 minutes. Do now every piece of work that can be undone and that helps the next step.
 
-Main input: "📝 Registro original", Título, Details, Type.
+Main input: "📝 Registro original", Title, Details, Type.
 
 Re-run: if the page already has a "🔍 Refinamento" and the user wrote answers or "## ✏️ Ajustes", this is a re-run. Apply the user's answers and corrections. Write a complete new refinement, not only the changes. Do not ask again a question the user already answered.
 
