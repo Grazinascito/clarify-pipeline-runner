@@ -48,6 +48,8 @@ IA_NEEDS_YOU = "❓ precisa de você"
 IA_ERROR = "⚠️ erro"
 EXECUTOR_HUMAN = "Humano"
 EXECUTOR_AI = "IA"
+RESULT_OK = "ok"
+RESULT_NEEDS_YOU = "precisa_de_voce"
 
 
 @dataclass(frozen=True)
