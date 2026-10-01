@@ -1,0 +1,8 @@
+{
+  "type": "result",
+  "subtype": "error_max_turns",
+  "is_error": true,
+  "num_turns": 15,
+  "session_id": "sess-max",
+  "result": "Reached max turns"
+}
