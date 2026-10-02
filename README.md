@@ -1,6 +1,8 @@
 # clarify-pipeline-runner
 
-A Python program that runs on a Mac and turns a Notion inbox board into an AI task pipeline. When you move a card to certain columns, an AI agent refines, plans, or executes the task and writes the result back on the card page.
+A human-in-the-loop orchestrator that turns a Notion Kanban board into an AI task pipeline. A scheduled Python runner watches the board and, for each stage (refine, plan, execute), runs headless Claude Code, powered by GLM, as the agent. The result is written back to the card page.
+
+<img width="1215" height="846" alt="Screenshot 2026-10-01 at 22 16 34" src="https://github.com/user-attachments/assets/3b94a52a-1282-47ff-b14b-17b66cacb6e5" />
 
 ## Problem
 
