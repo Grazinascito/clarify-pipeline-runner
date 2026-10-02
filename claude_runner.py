@@ -142,7 +142,7 @@ def parse_output(stdout: str) -> ClaudeResult:
 
     return ClaudeResult(
         markdown=structured["markdown"],
-        new_title=structured["new_title"],
+        new_title=_normalize_new_title(structured["new_title"]),
         ia_status=structured["ia_status"],
         suggested_executor=structured["suggested_executor"],
         num_turns=num_turns,
@@ -197,6 +197,15 @@ def run_claude(
     if completed.returncode != 0:
         raise ClaudeError("exit_code", _exit_detail(completed))
     return parse_output(completed.stdout)
+
+
+def _normalize_new_title(value: str | None) -> str | None:
+    if not isinstance(value, str):
+        return None
+    stripped = value.strip()
+    if stripped == "" or stripped.casefold() in {"null", "none"}:
+        return None
+    return stripped
 
 
 def _http_mcp(url: str, glm_api_key: str) -> dict:

@@ -66,6 +66,15 @@ def main(argv: list[str] | None = None) -> int:
             for item in chosen:
                 process_item(client, item, settings, _local_now, logger)
         return 0
+    except (Exception, SystemExit) as exc:
+        _log(
+            logger,
+            "-",
+            "-",
+            f"falha na rodada: {type(exc).__name__}: {exc}",
+            level=logging.ERROR,
+        )
+        return 1
     finally:
         lock.close()
 

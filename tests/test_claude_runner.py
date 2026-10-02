@@ -18,6 +18,22 @@ from claude_runner import (
 FIXTURES = Path(__file__).parent / "fixtures"
 
 
+def _result_payload(new_title: str) -> dict:
+    return {
+        "type": "result",
+        "subtype": "success",
+        "is_error": False,
+        "num_turns": 1,
+        "session_id": "sess-title",
+        "structured_output": {
+            "markdown": "texto",
+            "new_title": new_title,
+            "ia_status": "ok",
+            "suggested_executor": None,
+        },
+    }
+
+
 def test_parse_output_returns_a_claude_result_from_a_successful_run():
     stdout = (FIXTURES / "claude_success.json").read_text()
     payload = json.loads(stdout)
@@ -31,6 +47,15 @@ def test_parse_output_returns_a_claude_result_from_a_successful_run():
     assert result.suggested_executor == structured["suggested_executor"]
     assert result.num_turns == payload["num_turns"]
     assert result.session_id == payload["session_id"]
+
+
+def test_parse_output_treats_null_text_as_no_new_title():
+    for raw in ("null", "NULL", " None ", ""):
+        result = parse_output(json.dumps(_result_payload(raw)))
+        assert result.new_title is None
+
+    result = parse_output(json.dumps(_result_payload("  Comprar caixa  ")))
+    assert result.new_title == "Comprar caixa"
 
 
 def test_parse_output_raises_max_turns_when_the_agent_hits_the_turn_limit():

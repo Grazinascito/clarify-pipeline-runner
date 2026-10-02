@@ -13,6 +13,7 @@ The user message contains:
    - "📝 Registro original": the original capture. Never edited.
    - Sections from earlier stages, each with a date in the heading: "🔍 Refinamento", "🗺️ Plano", "✅ Resultado".
    - "## ✏️ Ajustes": corrections and answers written by the user.
+   - Lines that start with "⚠️ Falha da IA" are notes written by the runner about a technical failure in an earlier run. They are not part of the task. Ignore them.
 
 How to read the input:
 
@@ -92,6 +93,6 @@ Never write the characters $ or ~. In Notion, text between two $ becomes a math 
 Return only the structured output. No text outside it.
 
 - markdown: the body of the section only. Start directly with the first ### heading. Never empty.
-- new_title: see the stage file.
+- new_title: see the stage file. When there is no new title, return the JSON value null. Never return the text "null".
 - ia_status: "ok" or "precisa_de_voce". You never report errors: the runner does that. If you could not do part of the work, say so in the markdown and choose ia_status with the rules above.
 - suggested_executor: "Humano", "IA", or null. See the stage file.
